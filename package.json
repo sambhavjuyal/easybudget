@@ -1,0 +1,85 @@
+{
+  "name": "easybudget",
+  "private": false,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "desktop": "vite build && electron .",
+    "start": "vite build && electron .",
+    "dist": "vite build && electron-builder",
+    "lint": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@fontsource-variable/figtree": "^5.3.0",
+    "@fontsource-variable/fraunces": "^5.3.0",
+    "@fontsource/jetbrains-mono": "^5.3.0",
+    "@google/genai": "^2.4.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/node": "^22.14.0",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.1",
+    "autoprefixer": "^10.4.21",
+    "electron": "^45.1.0",
+    "electron-builder": "^26.18.0",
+    "esbuild": "^0.28.0",
+    "lucide-react": "^0.546.0",
+    "motion": "^12.23.24",
+    "react": "^19.0.1",
+    "react-dom": "^19.0.1",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.0",
+    "vitest": "^5.0.5"
+  },
+  "description": "A private, offline budget planner for Windows and Mac.",
+  "author": "Sambhav Juyal",
+  "license": "MIT",
+  "main": "electron/main.mjs",
+  "homepage": "https://github.com/sambhavjuyal/easybudget",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sambhavjuyal/easybudget.git"
+  },
+  "build": {
+    "appId": "com.sambhavjuyal.easybudget",
+    "productName": "EasyBudget",
+    "directories": {
+      "output": "release",
+      "buildResources": "assets"
+    },
+    "files": [
+      "dist/**",
+      "electron/**",
+      "package.json"
+    ],
+    "artifactName": "EasyBudget-${version}-${os}-${arch}.${ext}",
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    },
+    "mac": {
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        }
+      ],
+      "category": "public.app-category.finance"
+    }
+  }
+}
