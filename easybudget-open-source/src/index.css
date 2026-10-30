@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: 'Fraunces Variable', Georgia, serif;
+  --color-brand: #1e3a8a;
+  --color-ink: #0a2540;
+  --color-paper: #fbf8f3;
+  --color-saffron: #f59e0b;
+  --font-sans: 'Figtree Variable', ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-sans); color: #0a2540; background-color: #fbf8f3; }
+  :focus-visible { outline: 3px solid #f59e0b; outline-offset: 2px; }
+  button, a, input { touch-action: manipulation; }
+  input[type="range"] { height: 1.75rem; }
+}
+
+.skip-link {
+  position: fixed; left: 1rem; top: -4rem; z-index: 100; padding: .75rem 1rem;
+  background: #0a2540; color: #fff; border-radius: .75rem; font-weight: 700; transition: top .15s;
+}
+.skip-link:focus { top: 1rem; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important; animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important; scroll-behavior: auto !important;
+  }
+}
+
+
+/* Stripe Signature Mesh Gradient Utilities */
+.stripe-mesh-gradient {
+  background: 
+    radial-gradient(at 0% 0%, rgba(99, 91, 255, 0.85) 0px, transparent 55%),
+    radial-gradient(at 100% 0%, rgba(236, 72, 153, 0.8) 0px, transparent 50%),
+    radial-gradient(at 50% 50%, rgba(244, 63, 94, 0.6) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(0, 212, 255, 0.7) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(245, 158, 11, 0.7) 0px, transparent 50%);
+}
+
+.stripe-mesh-banner {
+  background: linear-gradient(135deg, 
+    #1e3a8a 0%, 
+    #7c3aed 25%, 
+    #f59e0b 50%, 
+    #f43f5e 72%, 
+    #f59e0b 88%, 
+    #00d4ff 100%
+  );
+}
+
+.stripe-card-glow {
+  box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.08), 0 8px 16px -8px rgba(0, 0, 0, 0.05);
+}
+
+.stripe-card-glow-hover:hover {
+  box-shadow: 0 30px 60px -12px rgba(50, 50, 93, 0.15), 0 18px 36px -18px rgba(0, 0, 0, 0.1), 0 -12px 36px -8px rgba(99, 91, 255, 0.06);
+}
+
+/* Custom smooth scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f8fafc;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
